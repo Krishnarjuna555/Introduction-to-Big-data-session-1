@@ -1,0 +1,29 @@
+msg = input("Message Joseph & Jane communicated: ")
+compressed = ""
+Current_char = msg[0]
+n = 1 #value of occurrence
+
+is_lowercase = msg.isalpha() and msg.islower()
+
+if is_lowercase:
+    for Char in msg[1:]:
+        if Char == Current_char:
+            n += 1
+        else:
+            if n > 1:
+                compressed += Current_char + str(n)
+            else:
+                compressed += Current_char
+            Current_char = Char
+            n = 1
+    if n > 1:
+        compressed += Current_char + str(n)
+    else:
+        compressed += Current_char
+    
+    print("Compressed message:", compressed)
+
+else:
+    print("The string contains uppercase letters which is not allowed use only lowercase")
+
+
