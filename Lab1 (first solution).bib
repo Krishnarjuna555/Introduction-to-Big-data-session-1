@@ -1,0 +1,81 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNTTQ56WAq7Q+7t0AC9LY8l",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Krishnarjuna555/Introduction-to-Big-data-session-1/blob/main/Lab1%20(first%20solution)\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 4,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "IsR8yfBVZfWV",
+        "outputId": "2b17d71f-0bf7-4b53-991b-f685725490b9"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Message Joseph & Jane communicated: abcaaabbb\n",
+            "Compressed message: abca3b3\n"
+          ]
+        }
+      ],
+      "source": [
+        "msg = input(\"Message Joseph & Jane communicated: \")\n",
+        "compressed = \"\"\n",
+        "Current_char = msg[0]\n",
+        "n = 1 #value of occurrence\n",
+        "\n",
+        "is_lowercase = msg.isalpha() and msg.islower()\n",
+        "\n",
+        "if is_lowercase:\n",
+        "    for Char in msg[1:]:\n",
+        "        if Char == Current_char:\n",
+        "            n += 1\n",
+        "        else:\n",
+        "            if n > 1:\n",
+        "                compressed += Current_char + str(n)\n",
+        "            else:\n",
+        "                compressed += Current_char\n",
+        "            Current_char = Char\n",
+        "            n = 1\n",
+        "    if n > 1:\n",
+        "        compressed += Current_char + str(n)\n",
+        "    else:\n",
+        "        compressed += Current_char\n",
+        "\n",
+        "    print(\"Compressed message:\", compressed)\n",
+        "\n",
+        "else:\n",
+        "    print(\"The string contains uppercase letters which is not allowed use only lowercase\")\n",
+        "\n"
+      ]
+    }
+  ]
+}
